@@ -1,0 +1,6 @@
+version: '2'
+services:
+  eurekaserver:
+      image: citadel/tmx-eureka-service:v10
+      ports:
+        - "8761:8761"

@@ -1,0 +1,14 @@
+version: '2'
+services:
+  addressservice:
+      image: citadel/tmx-address-service:v10
+      ports:
+        - "8085:8085"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8085"
+        EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+        EUREKASERVER_PORT:   "8761"
+        ZIPKIN_URI: "http://zipkin/"
+        ZIPKIN_PORT: "9411"
+        ENCRYPT_KEY:       "IMSYMMETRIC"

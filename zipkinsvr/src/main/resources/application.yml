@@ -1,0 +1,14 @@
+#Default port is 8761
+server:
+  port: 9411
+spring:
+  mvc:
+    servlet:
+      load-on-startup: 3
+
+#Setting logging levels
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.thoughtmechanix: DEBUG

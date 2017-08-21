@@ -1,0 +1,11 @@
+zuul.ignored-services: "*"
+zuul.prefix:  /api
+zuul.routes.pupilservice: /pupil/**
+zuul.routes.addressservice: /address/**
+zuul.sensitiveHeaders: Cookie,Set-Cookie
+zuul.debug.request: true
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 10000
+hystrix.command.pupilservice.execution.isolation.thread.timeoutInMilliseconds: 7000
+hystrix.command.addressservice.execution.isolation.thread.timeoutInMilliseconds: 3500
+pupilservice.ribbon.ReadTimeout: 7000
+addressservice.ribbon.ReadTimeout: 3500

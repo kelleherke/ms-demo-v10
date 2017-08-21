@@ -1,0 +1,8 @@
+version: '2'
+services:
+  zipkin:
+    image: citadel/tmx-zipkinsvr:v10
+    ports:
+      - "9411:9411"
+    environment:
+      SERVER_PORT: "9411"

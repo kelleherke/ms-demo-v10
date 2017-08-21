@@ -1,0 +1,86 @@
+version: '2'
+services:
+  eurekaserver:
+     image:   citadel/tmx-eureka-service:v10
+     ports:
+       - "8761:8761"
+  configserver:
+    image: citadel/tmx-confsvr:v10
+    ports:
+       - "8762:8762"
+    environment:
+       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+       EUREKASERVER_PORT: "8761"
+       ENCRYPT_KEY:       "IMSYMMETRIC"       
+  zipkin:
+    image: citadel/tmx-zipkinsvr:v10
+    ports:
+      - "9411:9411"
+    environment:
+      SERVER_PORT: "9411"
+  zuulserver:
+    image: citadel/tmx-zuulsvr:v10
+    ports:
+      - "5555:5555"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "5555"
+      CONFIGSERVER_URI: "http://configserver:8762"
+      CONFIGSERVER_PORT: "8762"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT:        "8761"
+      ZIPKIN_URI: "http://zipkin/"
+      ZIPKIN_PORT: "9411"
+      ZIPKIN_URL: "http://zipkin:9411"
+      ENCRYPT_KEY:       "IMSYMMETRIC"      
+  addressservice:
+      image: citadel/tmx-address-service:v10
+      ports:
+        - "8085:8085"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8085"
+        CONFIGSERVER_URI: "http://configserver:8762"
+        CONFIGSERVER_PORT: "8762"
+        EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+        EUREKASERVER_PORT:   "8761"
+        KAFKASERVER_URI: "kafkaserver"
+        KAFKASERVER_PORT:    "2181"
+        ZKSERVER_URI: "kafkaserver"
+        ZIPKIN_URI: "http://zipkin/"
+        ZIPKIN_PORT: "9411"
+        ZIPKIN_URL: "http://zipkin:9411"
+        ENCRYPT_KEY:       "IMSYMMETRIC"
+  pupilservice:
+      image: citadel/tmx-pupil-service:v10
+      ports:
+        - "8086:8086"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8086"
+        CONFIGSERVER_URI: "http://configserver:8762"
+        CONFIGSERVER_PORT: "8762"
+        EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+        EUREKASERVER_PORT:   "8761"
+        KAFKASERVER_URI: "kafkaserver"
+        KAFKASERVER_PORT:    "2181"
+        ZKSERVER_URI: "kafkaserver"
+        ZIPKIN_URI: "http://zipkin/"
+        ZIPKIN_PORT: "9411"
+        ZIPKIN_URL: "http://zipkin:9411"
+        REDIS_PORT:          "6379"
+        ENCRYPT_KEY:       "IMSYMMETRIC"
+  logspout:
+    image: gliderlabs/logspout
+    command: syslog://logs5.papertrailapp.com:33437
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  
+  kafkaserver:
+    image: spotify/kafka
+    ports:
+      - 2181:2181
+      - 9092:9092
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379

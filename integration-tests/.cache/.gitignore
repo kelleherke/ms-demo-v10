@@ -1,0 +1,10 @@
+/localhost,5555,routes,b94e90d6de95d868f14a1a7e8a739569
+/localhost,8761,eureka,apps,ADDRESSSERVICE,4aadde8d24fc2950c88c6909364914db
+/localhost,8761,eureka,apps,CONFIGSERVER,c67541ff30f4180bd815bf0fed55bf78
+/localhost,8761,eureka,apps,PUPILSERVICE,eaacaaf8b972932f04f312e4ee8c01e7
+/localhost,8761,eureka,apps,ZUULSERVICE,606a7561b965700d75d5982299343a18
+/localhost,8762,addressservice,default,a4145df829657ca0fd3f0415ab650296
+/localhost,8762,licensingservice,default,464c79614cff6287c9a66e8eb295f63d
+/localhost,8762,organizationservice,default,bcce1423bdd0b4fd58c6ab388bc4f118
+/localhost,8762,pupilservice,default,2d10ade604598adf76efc343f390c4b2
+/localhost,8762,zuulservice,default,41e7de8fab33bb858d693ba0e8b4cf08
