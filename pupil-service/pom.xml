@@ -135,8 +135,8 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <start-class>ie.citadel.pupils.PupilServerApplication</start-class>
-    <docker.image.name>citadel/tmx-pupil-service</docker.image.name>
-    <docker.image.tag>v10</docker.image.tag>
+    <docker.image.name>kelleherke/tmx-pupil-service</docker.image.name>
+    <docker.image.tag>v11</docker.image.tag>
   </properties>
 
   <build>

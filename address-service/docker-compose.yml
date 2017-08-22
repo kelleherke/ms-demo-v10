@@ -1,7 +1,7 @@
 version: '2'
 services:
   addressservice:
-      image: citadel/tmx-address-service:v10
+      image: kelleherke/tmx-address-service:v11
       ports:
         - "8085:8085"
       environment:
