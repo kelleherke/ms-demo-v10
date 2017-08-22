@@ -1,11 +1,11 @@
 version: '2'
 services:
   eurekaserver:
-     image:   citadel/tmx-eureka-service:v10
+     image:   kelleherke/tmx-eureka-service:v11
      ports:
        - "8761:8761"
   configserver:
-    image: citadel/tmx-confsvr:v10
+    image: kelleherke/tmx-confsvr:v11
     ports:
        - "8762:8762"
     environment:
@@ -13,13 +13,13 @@ services:
        EUREKASERVER_PORT: "8761"
        ENCRYPT_KEY:       "IMSYMMETRIC"       
   zipkin:
-    image: citadel/tmx-zipkinsvr:v10
+    image: kelleherke/tmx-zipkinsvr:v11
     ports:
       - "9411:9411"
     environment:
       SERVER_PORT: "9411"
   zuulserver:
-    image: citadel/tmx-zuulsvr:v10
+    image: kelleherke/tmx-zuulsvr:v11
     ports:
       - "5555:5555"
     environment:
@@ -34,7 +34,7 @@ services:
       ZIPKIN_URL: "http://zipkin:9411"
       ENCRYPT_KEY:       "IMSYMMETRIC"      
   addressservice:
-      image: citadel/tmx-address-service:v10
+      image: kelleherke/tmx-address-service:v11
       ports:
         - "8085:8085"
       environment:
@@ -52,7 +52,7 @@ services:
         ZIPKIN_URL: "http://zipkin:9411"
         ENCRYPT_KEY:       "IMSYMMETRIC"
   pupilservice:
-      image: citadel/tmx-pupil-service:v10
+      image: kelleherke/tmx-pupil-service:v11
       ports:
         - "8086:8086"
       environment:

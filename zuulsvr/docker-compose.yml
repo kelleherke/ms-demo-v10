@@ -1,7 +1,7 @@
 version: '2'
 services:
   zuulserver:
-    image: citadel/tmx-zuulsvr:v10
+    image: kelleherke/tmx-zuulsvr:v11
     ports:
       - "5555:5555"
     environment:

@@ -1,7 +1,7 @@
 version: '2'
 services:
   zipkin:
-    image: citadel/tmx-zipkinsvr:v10
+    image: kelleherke/tmx-zipkinsvr:v11
     ports:
       - "9411:9411"
     environment:
