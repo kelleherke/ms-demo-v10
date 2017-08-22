@@ -1,4 +1,4 @@
-echo "Pushing service docker images to docker hub ...."
+echo "Pushing citadel service docker images to docker hub ...."
 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 docker push citadel/tmx-addressservice:v10
 docker push citadel/tmx-pupilservice:v10
