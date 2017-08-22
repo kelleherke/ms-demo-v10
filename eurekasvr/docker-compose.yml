@@ -1,6 +1,0 @@
-version: '2'
-services:
-  eurekaserver:
-      image: kelleherke/tmx-eureka-service:v11
-      ports:
-        - "8761:8761"

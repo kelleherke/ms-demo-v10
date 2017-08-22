@@ -1,8 +1,0 @@
-version: '2'
-services:
-  zipkin:
-    image: kelleherke/tmx-zipkinsvr:v11
-    ports:
-      - "9411:9411"
-    environment:
-      SERVER_PORT: "9411"
