@@ -1,5 +1,5 @@
 echo "Tagging build with $BUILD_NAME"
-export TARGET_URL="https://api.github.com/repos/kelleherke/ms-demo-v11/releases?access_token=$GITHUB_TOKEN"
+export TARGET_URL="https://api.github.com/repos/kelleherke/ms-demo-v10/releases?access_token=$GITHUB_TOKEN"
 
 body="{
   \"tag_name\": \"$BUILD_NAME\",

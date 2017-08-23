@@ -65,7 +65,7 @@ public class AddressRestTemplateClient {
         try {
         	addressRedisRepository.createAddress(address);
         }catch (Exception ex){
-            logger.error("Unable to cache organization {} in Redis. Exception {}", address.getEircode(), ex);
+            logger.error("Unable to cache address {} in Redis. Exception {}", address.getEircode(), ex);
         }
     }
 }
