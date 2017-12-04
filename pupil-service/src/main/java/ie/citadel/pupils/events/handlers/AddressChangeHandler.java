@@ -12,12 +12,12 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 
 
 @EnableBinding(CustomChannels.class)
-public class OrganizationChangeHandler {
+public class AddressChangeHandler {
 
     @Autowired
     private AddressRedisRepository addressRedisRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(OrganizationChangeHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(AddressChangeHandler.class);
 
     @StreamListener("inboundAddressChanges")
     public void loggerSink(AddressChangeModel addressChangeModel) {
@@ -34,11 +34,11 @@ public class OrganizationChangeHandler {
                 addressRedisRepository.deleteAddress(addressChangeModel.getEircode());
                 break;
             case "DELETE":
-                logger.debug("Received a DELETE event from the organization service for organization id {}", addressChangeModel.getEircode());
+                logger.debug("Received a DELETE event from the address service for organization id {}", addressChangeModel.getEircode());
                 addressRedisRepository.deleteAddress(addressChangeModel.getEircode());
                 break;
             default:
-                logger.error("Received an UNKNOWN event from the organization service of type {}", addressChangeModel.getType());
+                logger.error("Received an UNKNOWN event from the address service of type {}", addressChangeModel.getType());
                 break;
 
         }

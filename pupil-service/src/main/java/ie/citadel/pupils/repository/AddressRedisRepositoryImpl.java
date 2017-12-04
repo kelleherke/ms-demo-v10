@@ -11,7 +11,7 @@ import ie.citadel.pupils.model.Address;
 
 @Repository
 public class AddressRedisRepositoryImpl implements AddressRedisRepository {
-    private static final String HASH_NAME ="organization";
+    private static final String HASH_NAME ="address";
 
     private RedisTemplate<String, Address> redisTemplate;
     private HashOperations hashOperations;
